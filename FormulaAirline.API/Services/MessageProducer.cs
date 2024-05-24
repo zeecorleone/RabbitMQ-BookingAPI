@@ -20,7 +20,9 @@ public class MessageProducer : IMessageProducer
 
         using var channel = conn.CreateModel();
 
-        channel.QueueDeclare("bookings", true, true);
+        
+
+        channel.QueueDeclare("bookings", true, false);
 
         var jsonString = JsonSerializer.Serialize(message);
         var body = Encoding.UTF8.GetBytes(jsonString);
